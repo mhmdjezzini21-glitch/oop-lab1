@@ -1,0 +1,5 @@
+[run]
+omit =
+    lab1/turing_machine/cli.py
+    lab1/turing_machine/__init__.py
+    */tests/*
