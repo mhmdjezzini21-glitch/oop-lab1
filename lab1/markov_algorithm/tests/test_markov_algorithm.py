@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from lab1.markov_algorithm.rule import Rule
 from lab1.markov_algorithm.markov_algorithm import MarkovAlgorithm
 

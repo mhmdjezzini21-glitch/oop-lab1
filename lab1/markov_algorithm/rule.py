@@ -1,4 +1,4 @@
-﻿"""A single rule for a normal Markov algorithm."""
+"""A single rule for a normal Markov algorithm."""
 import re
 
 class Rule:

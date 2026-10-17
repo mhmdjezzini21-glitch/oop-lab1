@@ -1,4 +1,4 @@
-﻿"""Normal Markov Algorithm implementation."""
+"""Normal Markov Algorithm implementation."""
 from __future__ import annotations
 from typing import Iterable, List
 from .rule import Rule

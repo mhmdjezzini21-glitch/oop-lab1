@@ -1,4 +1,4 @@
-"""Entry point for Lab 1.8.2 — Turing Machine."""
+"""Entry point for Lab 1.8.2 вЂ” Turing Machine."""
 
 from lab1.turing_machine.cli import run_cli
 
