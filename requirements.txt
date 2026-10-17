@@ -1,2 +1,6 @@
 pytest==8.3.3
+<<<<<<< HEAD
 pytest-cov==6.0.0
+=======
+pytest-cov==6.0.0
+>>>>>>> feature/lab1-markov
