@@ -28,6 +28,8 @@ class Rule:
         return self._initial_state == other._initial_state and self._target_state == other._target_state
     def __hash__(self) -> int: return hash((self._initial_state, self._target_state))
     def __str__(self) -> str: return f"{self._initial_state[0]},{self._initial_state[1]} -> {self._target_state[0]},{self._target_state[1]},{self._target_state[2]}"
+    def __repr__(self) -> str:
+        return f"Rule({self._initial_state!r}, {self._target_state!r})"
     @classmethod
     def from_string(cls, text: str) -> "Rule":
         if "->" not in text: raise ValueError(f"Invalid rule line: {text!r}")
@@ -38,3 +40,4 @@ class Rule:
         if len(right_parts) != 3: raise ValueError(f"Invalid right part: {right!r}")
         return cls((left_parts[0], left_parts[1]), (right_parts[0], right_parts[1], right_parts[2]))
     def to_string(self) -> str: return str(self)
+
