@@ -28,22 +28,28 @@ def run_cli() -> None:
     while True:
         print(MENU)
         choice = input("Choose an option: ").strip()
+
         if choice == "1":
             print(f"\nText: {algo.text}\nSteps: {algo.steps}")
         elif choice == "2":
             is_running = algo.step()
             print(f"\nText: {algo.text}")
+
             if not is_running: print("(Algorithm halted)")
+
         elif choice == "3":
             result = algo.run()
             print(f"\nFinal text: {result}\nTotal steps: {algo.steps}")
+
         elif choice == "4":
             new_text = input("New text: ")
             algo.set_text(new_text)
             print(f"Text reset to: {algo.text}")
+
         elif choice == "5":
             print("\nRules:")
             for r in algo.rules: print("  ", r)
+
         elif choice == "6":
             print("\nGoodbye.")
             break
