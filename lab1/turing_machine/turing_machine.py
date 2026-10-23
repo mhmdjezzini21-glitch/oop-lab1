@@ -24,6 +24,7 @@ class TuringMachine:
         clone._head = other._head
         clone._steps = other._steps
         return clone
+    
     def copy_from(self, other: "TuringMachine") -> None:
         if not isinstance(other, TuringMachine): raise TypeError("copy_from expects a TuringMachine")
         self._tape = list(other._tape)
@@ -31,6 +32,7 @@ class TuringMachine:
         self._state = other._state
         self._rules = list(other._rules)
         self._steps = other._steps
+
     @property
     def tape(self) -> Tuple[str, ...]: return tuple(self._tape)
     @property
