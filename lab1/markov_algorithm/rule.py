@@ -1,6 +1,7 @@
 """A single rule for a normal Markov algorithm."""
 import re
 
+
 class Rule:
     __slots__ = ("_left", "_right", "_terminal")
 

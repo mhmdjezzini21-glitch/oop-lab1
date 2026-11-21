@@ -1,8 +1,12 @@
 ﻿"""Unit tests for TuringMachine."""
 import copy
+
 import pytest
+
 from lab1.turing_machine.rule import Rule
 from lab1.turing_machine.turing_machine import TuringMachine
+
+
 def make_machine():
     rules = [Rule(("q0", "0"), ("q0", "1", "R")), Rule(("q0", "1"), ("q0", "0", "R"))]
     return TuringMachine("0101", rules)

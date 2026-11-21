@@ -1,6 +1,5 @@
 ﻿"""A single transition rule of a Turing machine."""
 from __future__ import annotations
-from typing import Tuple
 
 BLANK = "_"
 DIRECTIONS = ("L", "R", "N")
@@ -9,7 +8,7 @@ class Rule:
    
     __slots__ = ("_initial_state", "_target_state")
    
-    def __init__(self, initial_state: Tuple[str, str], target_state: Tuple[str, str, str]) -> None:
+    def __init__(self, initial_state: tuple[str, str], target_state: tuple[str, str, str]) -> None:
    
         if not (isinstance(initial_state, tuple) and len(initial_state) == 2): raise ValueError("initial_state must be a (state, symbol) tuple")
    
@@ -32,10 +31,10 @@ class Rule:
         self._target_state = (next_state, new_symbol, direction)
     @property
 
-    def initial_state(self) -> Tuple[str, str]: return self._initial_state
+    def initial_state(self) -> tuple[str, str]: return self._initial_state
     @property
 
-    def target_state(self) -> Tuple[str, str, str]: return self._target_state
+    def target_state(self) -> tuple[str, str, str]: return self._target_state
    
     def __eq__(self, other: object) -> bool:
        
@@ -51,7 +50,7 @@ class Rule:
         return f"Rule({self._initial_state!r}, {self._target_state!r})"
     @classmethod
    
-    def from_string(cls, text: str) -> "Rule":
+    def from_string(cls, text: str) -> Rule:
    
         if "->" not in text: raise ValueError(f"Invalid rule line: {text!r}")
    

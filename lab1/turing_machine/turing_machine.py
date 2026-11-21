@@ -1,13 +1,15 @@
 ﻿"""Turing machine implementation."""
 from __future__ import annotations
-from typing import Iterable, List, Optional, Tuple
+
+from collections.abc import Iterable
+
 from .rule import Rule
 
 BLANK = "_"
 
 class TuringMachine:
 
-    __slots__ = ("_tape", "_head", "_state", "_rules", "_steps")
+    __slots__ = ("_head", "_rules", "_state", "_steps", "_tape")
 
     def __init__(self, tape: Iterable[str], rules: Iterable[Rule], start_state: str = "q0") -> None:
 
@@ -27,7 +29,7 @@ class TuringMachine:
 
     @classmethod
 
-    def from_machine(cls, other: "TuringMachine") -> "TuringMachine":
+    def from_machine(cls, other: TuringMachine) -> TuringMachine:
 
         if not isinstance(other, TuringMachine): raise TypeError("from_machine expects a TuringMachine")
 
@@ -37,7 +39,7 @@ class TuringMachine:
 
         return clone
     
-    def copy_from(self, other: "TuringMachine") -> None:
+    def copy_from(self, other: TuringMachine) -> None:
 
         if not isinstance(other, TuringMachine): raise TypeError("copy_from expects a TuringMachine")
 
@@ -48,7 +50,7 @@ class TuringMachine:
         self._steps = other._steps
 
     @property
-    def tape(self) -> Tuple[str, ...]: return tuple(self._tape)
+    def tape(self) -> tuple[str, ...]: return tuple(self._tape)
 
     @property
     def head(self) -> int: return self._head
@@ -60,7 +62,7 @@ class TuringMachine:
     def steps(self) -> int: return self._steps
 
     @property
-    def rules(self) -> Tuple[Rule, ...]: return tuple(self._rules)
+    def rules(self) -> tuple[Rule, ...]: return tuple(self._rules)
 
     def __eq__(self, other: object) -> bool:
 
@@ -78,7 +80,7 @@ class TuringMachine:
 
         if rule in self._rules: self._rules.remove(rule)
 
-    def find_rule(self) -> Optional[Rule]:
+    def find_rule(self) -> Rule | None:
 
         key = (self._state, self._tape[self._head])
         for rule in self._rules:

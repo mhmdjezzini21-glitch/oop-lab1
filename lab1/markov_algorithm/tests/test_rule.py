@@ -1,5 +1,7 @@
 import pytest
+
 from lab1.markov_algorithm.rule import Rule
+
 
 def test_rule_creation():
     r = Rule("a", "b", terminal=True)

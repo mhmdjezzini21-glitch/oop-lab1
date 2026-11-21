@@ -1,5 +1,6 @@
 ﻿"""Console UI for the Turing machine."""
 from __future__ import annotations
+
 from .rule import Rule
 from .turing_machine import TuringMachine
 

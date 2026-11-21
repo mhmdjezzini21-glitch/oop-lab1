@@ -1,7 +1,8 @@
 """Console UI for the Markov Algorithm."""
 from __future__ import annotations
-from .rule import Rule
+
 from .markov_algorithm import MarkovAlgorithm
+from .rule import Rule
 
 MENU = """
 ============================

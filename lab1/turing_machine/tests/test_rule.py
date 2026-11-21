@@ -1,6 +1,9 @@
 ﻿"""Unit tests for Rule."""
 import pytest
+
 from lab1.turing_machine.rule import Rule
+
+
 def test_create_and_properties():
     r = Rule(("q0", "0"), ("q0", "1", "R"))
     assert r.initial_state == ("q0", "0")

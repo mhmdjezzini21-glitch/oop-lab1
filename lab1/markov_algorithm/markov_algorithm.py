@@ -1,14 +1,17 @@
 """Normal Markov Algorithm implementation."""
 from __future__ import annotations
-from typing import Iterable, List
+
+from collections.abc import Iterable
+
 from .rule import Rule
 
+
 class MarkovAlgorithm:
-    __slots__ = ("_rules", "_text", "_steps")
+    __slots__ = ("_rules", "_steps", "_text")
 
     def __init__(self, text: str, rules: Iterable[Rule] = ()) -> None:
         self._text = text
-        self._rules: List[Rule] = list(rules)
+        self._rules: list[Rule] = list(rules)
         self._steps = 0
 
     @property

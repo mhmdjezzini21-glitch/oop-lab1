@@ -1,6 +1,6 @@
-import pytest
-from lab1.markov_algorithm.rule import Rule
 from lab1.markov_algorithm.markov_algorithm import MarkovAlgorithm
+from lab1.markov_algorithm.rule import Rule
+
 
 def test_init():
     algo = MarkovAlgorithm("test")
