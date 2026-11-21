@@ -54,3 +54,6 @@ def run_cli() -> None:
         elif choice == "6":
             print("\nGoodbye.")
             break
+if __name__ == "__main__":
+    run_cli()
+

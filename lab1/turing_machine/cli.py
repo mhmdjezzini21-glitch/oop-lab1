@@ -61,3 +61,5 @@ def run_cli() -> None:
         elif choice == "6": print("\nGoodbye."); break
 
         else: print("\nInvalid choice. Enter a number from 1 to 6.")
+if __name__ == "__main__":
+    run_cli()
