@@ -1,0 +1,18 @@
+[project]
+name = "automotive-plant"
+version = "1.0.0"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=src --cov-report=term-missing --cov-fail-under=90 --cov-config=pyproject.toml"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["src/cli/*"]  # <--- Add this line to ignore the CLI
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]
