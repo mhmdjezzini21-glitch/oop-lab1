@@ -83,7 +83,7 @@ def action_fire_employee(plant, *_):
         print("Fired.")
     except Exception as e:
         print(f"Error: {e}")
-        
+
 def action_show_payroll(plant, *_):
     print(f"Total payroll: {plant.total_payroll()}")
 
@@ -118,16 +118,22 @@ def action_place_order(plant, *_):
 
 def action_fulfil(plant, _, inventory_service, __):
     oid = input("order id: ").strip()
-    order = plant.find_order(oid)
-    inventory_service.fulfil(order)
-    print(f"Order {oid} shipped")
+    try:
+        order = plant.find_order(oid)
+        inventory_service.fulfil(order)
+        print(f"Order {oid} shipped")
+    except Exception as e:
+        print(f"Error: {e}")
 
 def action_charge(plant, _, __, finance_service):
     oid = input("order id: ").strip()
-    order = plant.find_order(oid)
-    customer_account = Account(f"c-{order.customer.customer_id}", 1_000_000.0)
-    finance_service.charge_order(order, customer_account)
-    print(f"Charged {order.total_value()}")
+    try:
+        order = plant.find_order(oid)
+        customer_account = Account(f"c-{order.customer.customer_id}", 1_000_000.0)
+        finance_service.charge_order(order, customer_account)
+        print(f"Charged {order.total_value()}")
+    except Exception as e:
+        print(f"Error: {e}")
 
 def action_quality(*_):
     std = QualityStandard("Q1", 0.05)
